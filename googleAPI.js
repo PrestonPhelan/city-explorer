@@ -8,19 +8,27 @@ const getAllResults = query => {
   });
 };
 
-const getMedResult = query => {
+const getMedValue = parsed => {
+  if (parsed.length >= 106) {
+    return parsed[105].value[0];
+  } else {
+    return 0.1;
+  }
+};
+
+const getCityRelativeValue = (cityString, query) => {
   getAllResults(query).then(result => {
-    console.log("starting callback");
-    const parsedJSON = JSON.parse(result);
-    // console.log(result);
-    // console.log(result["default"]);
-    console.log(parsedJSON.default.geoMapData[55].value);
-    console.log("done with callback");
+    const parsedJSON = JSON.parse(result).default.geoMapData;
+    console.log(parsedJSON);
+    const median = getMedValue(parsedJSON);
+    console.log(median);
+    const city = parsedJSON.find( element => element.geoName === cityString );
+    console.log(city);
+    const cityValue = city.value[0];
+    console.log(cityValue);
+    console.log(cityValue / median);
+    return cityValue / median;
   });
 };
 
-const findMid = result => {
-
-};
-
-module.exports = getMedResult;
+module.exports = getCityRelativeValue;
