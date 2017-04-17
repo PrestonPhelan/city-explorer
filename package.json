@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/PrestonPhelan/city-explorer/issues"
   },
-  "homepage": "https://github.com/PrestonPhelan/city-explorer#readme"
+  "homepage": "https://github.com/PrestonPhelan/city-explorer#readme",
+  "dependencies": {
+    "redux-thunk": "^2.2.0"
+  }
 }

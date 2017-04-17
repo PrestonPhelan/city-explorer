@@ -1,7 +1,6 @@
 module.exports = {
   entry: './entry.jsx',
   output: {
-    path: './',
     filename: 'bundle.js',
   },
   module: {
@@ -9,7 +8,7 @@ module.exports = {
       {
         test: [/\.jsx?$/, /\.js?$/],    //Specifies file types to transpile
         exclude: /(node_modules)/,    //Leaves dependencies alone
-        loader: 'babel',    //Sets Babel as the transpired
+        loader: 'babel-loader',    //Sets Babel as the transpired
         query: {
           presets: ['es2015', 'react']  //Tells Babel what syntaxes to translate
         }
@@ -18,6 +17,6 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.js', '.jsx' ]
+    extensions: ['.js', '.jsx', '*']
   }
 };
