@@ -18,7 +18,7 @@ const getMedValue = parsed => {
   if (parsed.length >= 106) {
     return parsed[105].value[0];
   } else {
-    return 0.1;
+    return 1;
   }
 };
 
@@ -34,24 +34,6 @@ const getCityRelativeValue = (cityString, query) => {
     // console.log(cityValue);
     // console.log(cityValue / median);
     return cityValue / median;
-  });
-};
-
-const makeApiCalls = queries => {
-  let results = new Object;
-  let queriesLeft = queries.length;
-  queries.forEach( query => {
-    getAllResults(query).then(result => {
-      results[query] = JSON.parse(result).default.geoMapData;
-      --queriesLeft;
-      if (queriesLeft <= 0) {
-        console.log("Done with queries");
-        console.log(results);
-        return results;
-      } else {
-          console.log("Still waiting...");
-        }
-    });
   });
 };
 
@@ -112,16 +94,5 @@ const sortResults = (results, numQueries) => {
   console.log(cityRatings);
   return cityRatings;
 };
-//
-// const getCityRankings = queries => {
-//   let calls = new Promise( (resolve, reject) {
-//     makeApiCalls(queries)
-//   })
-//   let results = makeApiCalls(queries);
-//   while (data === undefined) {
-//     console.log("Waiting on data...");
-//     sl
-//   }
-// };
 
 module.exports = sendAllQueries;

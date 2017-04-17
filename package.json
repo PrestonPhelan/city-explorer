@@ -1,0 +1,21 @@
+{
+  "name": "city_explorer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "googleAPI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrestonPhelan/city-explorer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrestonPhelan/city-explorer/issues"
+  },
+  "homepage": "https://github.com/PrestonPhelan/city-explorer#readme"
+}
